@@ -25,7 +25,7 @@ zz*.sh
 .env
 zTODO.rs
 localhost
-
+justfile
 
 # Added by cargo
 
