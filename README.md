@@ -68,6 +68,10 @@ Install for desktop mode only:
 `sudo apt install pgadmin4-desktop`
 
 Managing PostgreSQL Service:
+Check PostgreSQL status:
+```bash
+systemctl status postgresql
+```
 Start PostgreSQL:
 ```bash
 sudo systemctl start postgresql
