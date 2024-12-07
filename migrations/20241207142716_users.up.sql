@@ -14,5 +14,5 @@ CREATE TABLE "users" (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
-
+-- to speed up email search query
 CREATE INDEX users_email_idx ON users (email);

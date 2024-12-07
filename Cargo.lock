@@ -325,7 +325,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "axum-postgresql-7"
+name = "axum-postgresql"
 version = "0.1.0"
 dependencies = [
  "argon2",

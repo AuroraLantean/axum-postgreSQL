@@ -99,12 +99,12 @@ Troubleshooting Tips:
 
 **Network Access Issues**: Double-check the configuration files (`postgresql.conf` and `pg_hba.conf`) if you are setting up remote access.
 
-```
+```bash
 ps -ef | grep postgres
 sudo systemctl status postgresql
 ```
 Use the default username `postgres` to login:
-```
+```bash
 sudo -u postgres psql
 alter user postgres with password 'password';
 quit
@@ -123,6 +123,33 @@ Connection Tab:
 - Maintenance database = postgres
 - Username = postgres
 
+## Make a new Database
+in your .env file:
+```
+# PostgreSQL Database
+DATABASE_URL=postgresql://postgres:password@localhost:5433/db_name
+```
+where postgresql is the protocol, postgres is the username, password is password, localhost is the host, db_name is the database name
+
+Setup a new database:
+```bash
+cargo install sqlx-cli --no-default-features --features native-tls,postgres
+systemctl status postgresql
+systemctl start postgresql
+sqlx database create
+sqlx migrate add -r users
+```
+the last command will make two `.sql` files under the `migrations` folder:
+`yyyymmdd123456_users.up.sql` file for applying changes
+`yyyymmdd123456_users.down.sql` file for undoing migration if needed
+
+To execute the migration, i.e. make `users` talbe  according to the `yyyymmdd123456_users.up.sql` file:
+```bash
+sqlx migrate run
+```
+... Applied 20241207142716/migrate users (283.438821ms)
+
+
 
 Create a new database:
 `CREATE DATABASE mydatabase;`
@@ -135,7 +162,6 @@ Grant privileges to the user for the new database:
 
 To exit the PostgreSQL shell, type:
 ` \q `
-
 
 Make a local PostgreSQL database and user by executing the following SQL commands in your PostgreSQL shell or client:
 
