@@ -149,19 +149,9 @@ sqlx migrate run
 ```
 ... Applied 20241207142716/migrate users (283.438821ms)
 
+TODO: 1:06:92
 
-
-Create a new database:
-`CREATE DATABASE mydatabase;`
-
-Create a new user with a password:
-`CREATE USER myuser WITH PASSWORD 'mypassword';`
-
-Grant privileges to the user for the new database:
-`GRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;`
-
-To exit the PostgreSQL shell, type:
-` \q `
+---------------==
 
 Make a local PostgreSQL database and user by executing the following SQL commands in your PostgreSQL shell or client:
 
